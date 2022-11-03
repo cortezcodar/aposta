@@ -1,6 +1,6 @@
-import { UserRepository } from "../repositories/user.repository";
+import { UserRepository } from "../repositories/example.repository";
 
-export class RegisterService {
+export class ExampleService {
 
     private repository: UserRepository
     constructor() {
