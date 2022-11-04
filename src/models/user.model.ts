@@ -5,7 +5,7 @@ import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDat
 export class User {
 
 
-    @PrimaryGeneratedColumn('increment')
+    @PrimaryGeneratedColumn()
     id: number
 
     @Column({ type: 'varchar' })
