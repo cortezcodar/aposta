@@ -1,24 +1,23 @@
 import { type } from "os";
-import { Column, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 
 @Entity('apostas')
-export class Apostas {
+export class Aposta {
 
     @PrimaryGeneratedColumn('increment')
     id: number
 
     @Column({ name: "valor_aposta", type: "decimal", precision: 2, scale: 2 })
-    valorDaAposta: number
 
-    @Column({ type: 'varchar' })
-    dataDaAposta: string
+    @Column({ name: 'data_aposta', type: 'datetime', nullable: true, })
 
     @UpdateDateColumn()
-    createdAt: Date;
+    "criado em": Date;
 
     @UpdateDateColumn()
-    updatedAt: Date;
+    "atualizado_em": Date;
+
 
 }
 

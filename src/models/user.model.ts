@@ -8,26 +8,23 @@ export class User {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column({ type: 'varchar' })
-    name: string
+    @Column({ name: 'userId/user_id', type: 'int', unique: true })
 
-    @Column({ type: 'varchar', unique: true })
-    email: string
+    @Column({ name: 'name', type: 'varchar' })
 
-    @Column({ type: 'varchar', unique: true })
-    caminhodafoto: string
+    @Column({ name: 'email', type: 'varchar', unique: true })
 
-    @Column({ type: 'varchar' })
-    genero: string
+    @Column({ name: 'caminho_da_foto', type: 'varchar', unique: true })
 
-    @Column({ type: 'varchar' })
-    password: string
+    @Column({ name: 'genero', type: 'varchar' })
+
+    @Column({ name: 'password', type: 'varchar' })
 
     @UpdateDateColumn()
-    createdAt: Date;
+    "criado em": Date;
 
     @UpdateDateColumn()
-    updatedAt: Date;
+    "atualizado_em": Date;
 
 
 
