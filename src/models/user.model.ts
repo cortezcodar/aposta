@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn, } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn, } from "typeorm";
 
 
 @Entity("usuarios")
@@ -23,7 +23,7 @@ export class User {
     @Column({ name: 'password', type: 'varchar' })
     password: string
 
-    @UpdateDateColumn()
+    @CreateDateColumn()
     criado_em: Date;
 
     @UpdateDateColumn()

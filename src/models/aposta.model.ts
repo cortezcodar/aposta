@@ -17,7 +17,7 @@ export class Aposta {
     @Column({ name: "user_id", type: 'int', unique: true })
     user_id: number
 
-    @UpdateDateColumn()
+    @CreateDateColumn()
     criado_em: Date;
 
     @UpdateDateColumn()
