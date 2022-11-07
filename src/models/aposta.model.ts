@@ -14,7 +14,7 @@ export class Aposta {
     @Column({ name: 'data_aposta', type: 'datetime', nullable: true, })
     data_aposta: string
 
-    @Column({ name: "user_id", type: 'uuid' })
+    @Column({ name: "user_id", type: 'int', unique: true })
     user_id: number
 
     @UpdateDateColumn()
