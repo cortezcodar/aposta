@@ -9,14 +9,19 @@ export class Aposta {
     id: number
 
     @Column({ name: "valor_aposta", type: "decimal", precision: 2, scale: 2 })
+    valor_aposta: number
 
     @Column({ name: 'data_aposta', type: 'datetime', nullable: true, })
+    data_aposta: string
+
+    @Column({ name: "user_id", type: 'uuid' })
+    user_id: number
 
     @UpdateDateColumn()
-    "criado em": Date;
+    criado_em: Date;
 
     @UpdateDateColumn()
-    "atualizado_em": Date;
+    atualizado_em: Date;
 
 
 }
