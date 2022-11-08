@@ -14,10 +14,10 @@ export class User {
     @Column({ name: 'email', type: 'varchar', unique: true })
     email: string
 
-    @Column({ name: 'caminho_da_foto', type: 'varchar', unique: true })
+    @Column({ name: 'caminho_da_foto', nullable: true, unique: true })
     caminho_da_foto: string
 
-    @Column({ name: 'genero', type: 'varchar' })
+    @Column({ name: 'genero', nullable: true, })
     genero: string
 
     @Column({ name: 'password', type: 'varchar' })
