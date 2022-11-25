@@ -1,13 +1,18 @@
 import { Request, Response } from "express";
-import { ExampleRegister } from "../service/example.register";
+import { UserRepository } from "../repositories/userRepository";
+import { RegisterLoginService } from "../service/registerLoginService";
 
-export class ExampleController {
 
-    private service: ExampleRegister
+
+export class RegisterLoginController {
+
+
+    private repository: UserRepository
+    private service: RegisterLoginService
 
     constructor() {
 
-        this.service = new ExampleRegister();
+        this.service = new RegisterLoginService();
     }
 
     public async registrar(req: Request, res: Response) {
@@ -62,6 +67,17 @@ export class ExampleController {
 
         }
 
+        try {
+
+            await this.repository.encotrarUsuarioporEmail(email)
+
+
+        } catch (error) {
+            return res.status(404).json({ msg: error.message })
+
+
+        }
+
 
 
         const usuario = await this.service.registrarUsuario({ password, email, name, genero, caminho_da_foto })
@@ -71,7 +87,7 @@ export class ExampleController {
         if (!usuario) {
 
             const msgJson = { msg: 'usuario Já Cadastrado com esse E-email!' }
-            return res.status(403).json(msgJson)
+            return res.status(404).json(msgJson)
         }
 
 

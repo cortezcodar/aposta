@@ -15,7 +15,7 @@ export async function AuthMiddleware(
 
     if (!authorization) {
 
-        return res.status(401).json({ Error: " token not  provided " })
+        return res.status(400).json({ Error: " token not  provided " })
 
 
     }
@@ -36,7 +36,7 @@ export async function AuthMiddleware(
     } catch (error) {
 
 
-        return res.status(401).json({ Error: " token invalid" })
+        return res.status(400).json({ Error: " token invalid" })
     }
 
 

@@ -1,9 +1,9 @@
 
 import { request, Request, response, Response, Router } from "express";
-import { ExampleController } from "./controllers/example.controllers";
-import { ExampleLoginControllers } from "./controllers/example.login.controllers";
-import { AuthMiddleware } from "./middleware/example.aut";
-import { ExampleLogin } from "./service/example.login";
+import { RegisterLoginController } from "./controllers/RegisterLoginControllers";
+import { LoginControllers } from "./controllers/loginControllers";
+import { AuthMiddleware } from "./middleware/auth";
+
 
 
 
@@ -12,24 +12,30 @@ import { ExampleLogin } from "./service/example.login";
 const router = Router()
 
 
-const exampleController = new ExampleController()
+const registerLoginController = new RegisterLoginController()
 
 router.post('/registro', async (req: Request, res: Response) => {
 
-    await exampleController.registrar(req, res)
+    await registerLoginController.registrar(req, res)
 })
+
+
+
 
 router.post('/auth', AuthMiddleware, (req, res) => {
     res.json({ hello: 'world' })
 });
 
-
-const exampleLoginControllers = new ExampleLoginControllers()
+const loginControllers = new LoginControllers()
 
 router.post('/login', async (req: Request, res: Response) => {
 
-    await exampleLoginControllers.authentica(req, res)
+    await loginControllers.authentica(req, res)
 })
+
+
+
+
 
 
 

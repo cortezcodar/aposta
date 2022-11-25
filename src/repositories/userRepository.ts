@@ -5,27 +5,25 @@ import { User } from "../models/user.model"
 
 
 const dataSourceRepository = appDataSource.getRepository(User)
-export class ExampleRepository {
+export class UserRepository {
 
 
     public async encotrarUsuarioporEmail(email: string) {
 
-        const emailDoUsuario = await dataSourceRepository.findOneBy({
+        const usuario = await dataSourceRepository.findOneBy({
 
             email: email
 
         })
-        return emailDoUsuario
+        return usuario
     }
 
 
 
     public salvarUsuarioNoBanco({ name, email, password, caminho_da_foto, genero }: any) {
         const dadosDeTodosUsuario = dataSourceRepository.create({ name, email, password, caminho_da_foto, genero, })
-        const usuario = dataSourceRepository.save(dadosDeTodosUsuario)
 
-
-        return usuario
+        return dataSourceRepository.save(dadosDeTodosUsuario)
     }
 
 
