@@ -20,7 +20,7 @@ export class User {
     @Column({ name: 'genero', nullable: true, })
     genero: string
 
-    @Column({ name: 'password', type: 'varchar' })
+    @Column({ name: 'password', type: 'varchar', nullable: true })
     password: string
 
     @CreateDateColumn()
